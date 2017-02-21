@@ -6,16 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.message = "Hello World";
+var ReactiveFomrs = (function () {
+    function ReactiveFomrs() {
     }
-    return AppComponent;
+    return ReactiveFomrs;
 }());
-AppComponent = __decorate([
+ReactiveFomrs = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "<div class=\"container\">                   \n                   <my-tf></my-tf>\n                   <my-rf></my-rf>                         \n                </div>"
+        selector: 'my-rf',
+        template: "<h3>Reactive Forms</h3>"
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
+], ReactiveFomrs);
+exports.ReactiveFomrs = ReactiveFomrs;
