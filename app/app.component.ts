@@ -23,12 +23,17 @@ import { Component} from '@angular/core';
                     <button id=b1 class="btn btn-sm btn-primary">click</button> 
 
                     <input type="text" [(ngModel)]="name" class="form-control" (change)="check(name)">
-                    <h3>{{name}}</h3>                
+                    <h3>{{name}}</h3>   
+                    <my-listapp [personList]=pList></my-listapp>
+                    <counter [countby]=sendnum #c1></counter>
+                    <button (click)="c1.reset()">reset</button>             
                 </div>`
 })
 
 export class AppComponent{
     message:string = "Hello World";
+    pList:Array<string> = ['ABC','DEF','GHI','JKL'];
+    sendnum : number = 2;
 
     constructor(){
        
