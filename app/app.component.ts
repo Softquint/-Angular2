@@ -19,14 +19,30 @@ import { Component} from '@angular/core';
 
                      <!-- Two way  Biniding Data -->
                     <input type="text" bindon-ngModel="message" class="form-control">
-                    <input type="text" [(ngModel)]="message" class="form-control">                 
+                    <input type="text" [(ngModel)]="message" class="form-control">
+                    <button id=b1 class="btn btn-sm btn-primary">click</button> 
+
+                    <input type="text" [(ngModel)]="name" class="form-control" (change)="check(name)">
+                    <h3>{{name}}</h3>                
                 </div>`
 })
 
 export class AppComponent{
     message:string = "Hello World";
 
+    constructor(){
+       
+    }
+
     change(){
-        this.message = 'I am changed'
+        this.message = 'I am changed';
+         document.getElementById('b1').addEventListener('click', this.myClick.bind(this));
+    }
+    myClick(){
+        this.message = "ABC";
+    }
+
+    check(n){
+        this.message = "Hello, " +  n;
     }
 }
