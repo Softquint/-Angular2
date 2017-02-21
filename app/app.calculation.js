@@ -13,14 +13,22 @@ var CounterComponent = (function () {
     function CounterComponent() {
         this.count = 0;
         this._clickCount = 0;
+        this.onMax = new core_1.EventEmitter();
         this.flag = false;
         this.countby = 0;
     }
     Object.defineProperty(CounterComponent.prototype, "clickCount", {
+        get: function () {
+            return this._clickCount;
+        },
         set: function (value) {
             this._clickCount = value;
             if (this._clickCount > 9) {
                 this.flag = true;
+                this.onMax.emit(true);
+            }
+            else {
+                this.flag = false;
             }
         },
         enumerable: true,
@@ -30,6 +38,7 @@ var CounterComponent = (function () {
         this.clickCount = 0;
         console.log("Reset Called.");
         this.count = 0;
+        this.onMax.emit(false);
     };
     CounterComponent.prototype.manageClickCount = function () {
         this.clickCount += 1;
@@ -44,6 +53,10 @@ var CounterComponent = (function () {
     };
     return CounterComponent;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], CounterComponent.prototype, "onMax", void 0);
 __decorate([
     core_1.Input(),
     __metadata("design:type", Number)

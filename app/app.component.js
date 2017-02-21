@@ -14,7 +14,17 @@ var AppComponent = (function () {
         this.message = "Hello World";
         this.pList = ['ABC', 'DEF', 'GHI', 'JKL'];
         this.sendnum = 2;
+        this.error = false;
     }
+    AppComponent.prototype.maxOut = function (flag) {
+        if (flag) {
+            this.errormessage = 'no more click';
+            this.error = true;
+        }
+        else {
+            this.error = false;
+        }
+    };
     AppComponent.prototype.change = function () {
         this.message = 'I am changed';
         document.getElementById('b1').addEventListener('click', this.myClick.bind(this));
@@ -30,7 +40,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<div class=\"container\">\n                    <h1>Property Binding</h1>\n                    <h2 innerHtml=\"{{message}}\">Hi, </h2>\n                    <h2 bind-innerHtml=\"message\">Hi, </h2>\n                    <h2 [innerHtml]=\"message\">Hi, </h2>\n\n                    <!-- Text-box Biniding Data -->\n                    <input type=\"text\" value=\"{{message}}\" class=\"form-control\">\n                    <input type=\"text\" bind-value=\"message\" class=\"form-control\">\n                    <input type=\"text\" [value]=\"message\" class=\"form-control\">\n\n                     <!-- Event Biniding Data -->\n                     <button on-click = \"change()\" class=\"btn btn-sm btn-primary\">click</button>\n                     <button (click) = \"change()\" class=\"btn btn-sm btn-primary\">click</button>\n\n                     <!-- Two way  Biniding Data -->\n                    <input type=\"text\" bindon-ngModel=\"message\" class=\"form-control\">\n                    <input type=\"text\" [(ngModel)]=\"message\" class=\"form-control\">\n                    <button id=b1 class=\"btn btn-sm btn-primary\">click</button> \n\n                    <input type=\"text\" [(ngModel)]=\"name\" class=\"form-control\" (change)=\"check(name)\">\n                    <h3>{{name}}</h3>   \n                    <my-listapp [personList]=pList></my-listapp>\n                    <counter [countby]=sendnum #c1></counter>\n                    <button (click)=\"c1.reset()\">reset</button>             \n                </div>"
+        template: "<div class=\"container\">\n                    <h1>Property Binding</h1>\n                    <h2 innerHtml=\"{{message}}\">Hi, </h2>\n                    <h2 bind-innerHtml=\"message\">Hi, </h2>\n                    <h2 [innerHtml]=\"message\">Hi, </h2>\n\n                    <!-- Text-box Biniding Data -->\n                    <input type=\"text\" value=\"{{message}}\" class=\"form-control\">\n                    <input type=\"text\" bind-value=\"message\" class=\"form-control\">\n                    <input type=\"text\" [value]=\"message\" class=\"form-control\">\n\n                     <!-- Event Biniding Data -->\n                     <button on-click = \"change()\" class=\"btn btn-sm btn-primary\">click</button>\n                     <button (click) = \"change()\" class=\"btn btn-sm btn-primary\">click</button>\n\n                     <!-- Two way  Biniding Data -->\n                    <input type=\"text\" bindon-ngModel=\"message\" class=\"form-control\">\n                    <input type=\"text\" [(ngModel)]=\"message\" class=\"form-control\">\n                    <button id=b1 class=\"btn btn-sm btn-primary\">click</button> \n\n                    <input type=\"text\" [(ngModel)]=\"name\" class=\"form-control\" (change)=\"check(name)\">\n                    <h3>{{name}}</h3>   \n                    <my-listapp [personList]=pList></my-listapp>\n                    <div class=\"alert alert-danger\" *ngIf=\"error\">{{errormessage}}</div>\n                    <counter [countby]=sendnum #c1 (onMax)=\"maxOut($event)\"></counter>\n                    <button (click)=\"c1.reset()\">reset</button>             \n                </div>"
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);

@@ -25,7 +25,8 @@ import { Component} from '@angular/core';
                     <input type="text" [(ngModel)]="name" class="form-control" (change)="check(name)">
                     <h3>{{name}}</h3>   
                     <my-listapp [personList]=pList></my-listapp>
-                    <counter [countby]=sendnum #c1></counter>
+                    <div class="alert alert-danger" *ngIf="error">{{errormessage}}</div>
+                    <counter [countby]=sendnum #c1 (onMax)="maxOut($event)"></counter>
                     <button (click)="c1.reset()">reset</button>             
                 </div>`
 })
@@ -34,9 +35,20 @@ export class AppComponent{
     message:string = "Hello World";
     pList:Array<string> = ['ABC','DEF','GHI','JKL'];
     sendnum : number = 2;
+    errormessage : string;
+    error: boolean = false;
 
     constructor(){
        
+    }
+
+    maxOut(flag:boolean){
+        if(flag){
+            this.errormessage = 'no more click'
+            this.error = true;
+        } else{
+            this.error = false;
+        }
     }
 
     change(){
