@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import {Form} from '@angular/from'
 
 @Component({
     selector:'my-rf',
@@ -14,5 +15,5 @@ import { Component} from '@angular/core';
 })
 
 export class ReactiveFomrs{
-    
+
 }
