@@ -3,12 +3,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
-import {TemplateFomrs} from './app.templateforms';
-import {ReactiveFomrs} from './app.reactiveform';
+import {Quotes} from './app.quotelist';
 
 @NgModule({
     imports:[BrowserModule , FormsModule , ReactiveFormsModule],
-    declarations:[AppComponent , TemplateFomrs , ReactiveFomrs],
+    declarations:[AppComponent, Quotes ],
     bootstrap:[AppComponent]
 })
 
