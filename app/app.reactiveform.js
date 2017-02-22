@@ -14,7 +14,7 @@ var ReactiveFomrs = (function () {
 ReactiveFomrs = __decorate([
     core_1.Component({
         selector: 'my-rf',
-        template: "<h3>Reactive Forms</h3>"
+        template: "<form class=\"form-horizontal\" #form=\"ngForm\" (submit)=\"logForm(form.value)\">\n                    <div class=\"form-group\">\n                        <label>First Name: </label>\n                        <input type=\"text\" class=\"form-control\" name=\"firstname\" ngModel>\n                    </div>\n                    <div class=\"form-group\">\n                        <button type=\"submit\" class=\"btn btn-primary\">submit</button>\n                    </div>\n                </form>"
     })
 ], ReactiveFomrs);
 exports.ReactiveFomrs = ReactiveFomrs;

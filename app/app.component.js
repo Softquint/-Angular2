@@ -15,7 +15,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<div class=\"container\">                   \n                   <my-tf></my-tf>\n                   <my-rf></my-rf>                         \n                </div>"
+        template: "<div class=\"container\">\n                    <h3>Template Form</h3>                   \n                   <my-tf></my-tf>\n                   <h3>Reactive Form</h3>\n                   <my-rf></my-rf>                         \n                </div>"
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

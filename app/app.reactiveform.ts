@@ -2,8 +2,17 @@ import { Component} from '@angular/core';
 
 @Component({
     selector:'my-rf',
-    template : `<h3>Reactive Forms</h3>`
+    template : `<form class="form-horizontal" #form="ngForm" (submit)="logForm(form.value)">
+                    <div class="form-group">
+                        <label>First Name: </label>
+                        <input type="text" class="form-control" name="firstname" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">submit</button>
+                    </div>
+                </form>`
 })
 
 export class ReactiveFomrs{
+    
 }
